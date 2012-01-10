@@ -14,6 +14,9 @@ public class TreeMain {
 	
 	public void initTree(){
 		Logger.logp("start");
+		
+		
+		
 		Logger.logp("stop");
 	}
 	
