@@ -1,7 +1,5 @@
 package com.adora.test.java;
 
-import java.util.Date;
-
 import com.adora.test.java.util.Logger;
 
 public class TestMain {
@@ -17,8 +15,6 @@ public class TestMain {
 	
 	private void doSomething(){
 		logp.log("start");
-		Date nowDt = new Date();
-		logp.log("Now -- "+nowDt.toString());
 		logp.log("stop");
 	}
 }
