@@ -1,7 +1,5 @@
 package com.adora.test.java.strings;
 
-import java.util.Date;
-
 import com.adora.test.java.util.Logger;
 
 public class StringReversal {
