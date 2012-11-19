@@ -1,4 +1,4 @@
-package com.adora.test.java;
+package com.adora.learn.java;
 
 import java.util.Hashtable;
 

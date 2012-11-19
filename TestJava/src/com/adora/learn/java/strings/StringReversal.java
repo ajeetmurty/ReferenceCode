@@ -1,6 +1,6 @@
-package com.adora.test.java.strings;
+package com.adora.learn.java.strings;
 
-import com.adora.test.java.util.Logger;
+import com.adora.learn.java.util.Logger;
 
 public class StringReversal {
 	private Logger logp = Logger.getInstance();

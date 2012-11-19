@@ -1,4 +1,4 @@
-package com.adora.test.java.util;
+package com.adora.learn.java.util;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;

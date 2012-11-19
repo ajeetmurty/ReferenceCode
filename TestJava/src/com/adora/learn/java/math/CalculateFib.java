@@ -1,6 +1,6 @@
-package com.adora.test.java.math;
+package com.adora.learn.java.math;
 
-import com.adora.test.java.util.Logger;
+import com.adora.learn.java.util.Logger;
 
 public class CalculateFib {
 	private Logger logp = Logger.getInstance();

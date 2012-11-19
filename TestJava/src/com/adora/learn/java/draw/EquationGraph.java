@@ -1,4 +1,4 @@
-package com.adora.test.java.draw;
+package com.adora.learn.java.draw;
 
 public class EquationGraph {
 
