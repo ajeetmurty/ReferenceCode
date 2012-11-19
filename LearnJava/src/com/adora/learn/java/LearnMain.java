@@ -2,16 +2,16 @@ package com.adora.learn.java;
 
 import java.util.Hashtable;
 
-import com.adora.test.java.util.Logger;
+import com.adora.learn.java.util.Logger;
 
-public class TestMain {
+public class LearnMain {
 	private Logger logp = Logger.getInstance();
 	
 	public static void main(String[] args) {
-		new TestMain();
+		new LearnMain();
 	}
 
-	public TestMain(){
+	public LearnMain(){
 		doit();
 	}
 	
@@ -32,9 +32,5 @@ public class TestMain {
 		}else{
 			System.out.print("fail");
 		}
-		
-		
 	}
-	
-	
 }
