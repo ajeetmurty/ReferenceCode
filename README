@@ -5,8 +5,8 @@ Author info -
 	Email:	ajeetmurty.dev@gmail.com
 
 Repo info - 
-	Repo URL:		https://github.com/ajeetmurty/ReferenceCode
+	Repo URL:	https://github.com/ajeetmurty/ReferenceCode
 	Description:	This repo is used to store+maintain commonly used code snippets.
 	Projects:
-		1. TestWeb 		- Static Eclipse Web Project. Contains HTML, CSS, JS, AJAX, JQuery samples. 
-		2. TestJava		- Eclipse Java Project. Contains Boilerplate, DS, Algos samples.
+		1. LearnWeb 		- Static Eclipse Web Project. Contains HTML, CSS, JS, AJAX, JQuery samples, etc. 
+		2. LearnJava		- Eclipse Java Project. Contains Boilerplate, DS, Algos samples, etc.
