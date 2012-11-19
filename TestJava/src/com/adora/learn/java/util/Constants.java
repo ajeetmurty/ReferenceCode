@@ -1,4 +1,4 @@
-package com.adora.test.java.util;
+package com.adora.learn.java.util;
 
 public class Constants {
 	public static final String LOG_DATE_FORMAT = "dd-MMM-yyyy-HH:mm:ss:SSS";

@@ -1,6 +1,6 @@
-package com.adora.test.java.ds;
+package com.adora.learn.java.ds;
 
-import com.adora.test.java.util.Logger;
+import com.adora.learn.java.util.Logger;
 
 public class HashMain {
 	private Logger logp = Logger.getInstance();
