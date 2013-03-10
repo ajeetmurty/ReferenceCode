@@ -5,8 +5,8 @@ Author info -
 	Email:	ajeetmurty.dev@gmail.com
 
 Repo info - 
-	Repo URL:	https://github.com/ajeetmurty/ReferenceCode
-	Description:	This repo is used to store+maintain commonly used code snippets.
+	Repo URL:		https://github.com/ajeetmurty/ReferenceCode
+	Description:	This repo contains boilerplate and POC code.
 	Projects:
-		1. LearnWeb 		- Static Eclipse Web Project. Contains HTML, CSS, JS, AJAX, JQuery samples, etc. 
-		2. LearnJava		- Eclipse Java Project. Contains Boilerplate, DS, Algos samples, etc.
+		1. RefWeb 		- HTML, CSS, JS, AJAX, JQuery, Java, RestFul. 
+		2. RefJava		- DS, Threads, Algos, Games.
