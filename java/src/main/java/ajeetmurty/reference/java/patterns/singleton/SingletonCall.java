@@ -3,15 +3,14 @@ package ajeetmurty.reference.java.patterns.singleton;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class Singleton {
-
+public class SingletonCall {
 	private final Logger logp = LoggerFactory.getLogger(this.getClass().getName());
 
 	public static void main(String[] args) {
-		new Singleton();
+		new SingletonCall();
 	}
 
-	public Singleton() {
+	public SingletonCall() {
 		doSingleton();
 	}
 
