@@ -10,4 +10,5 @@ Projects:
 1.  java: DS, Threads, Algos, Games.
 2.  perl: DS, scripts.
 3.  web: HTML, CSS, JS, AJAX, JQuery. 
-4.  restful: Restful Server and Client.
+4.  phonegap: Template, DB, Sensors.
+5.  restful: Restful Server and Client.
