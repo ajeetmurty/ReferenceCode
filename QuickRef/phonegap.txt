@@ -1,0 +1,9 @@
+create project - 
+	1. download phonegap zip and unzip phonegap-x.x.x/lib/android dir to a <team dir A>.
+	2. <temp dir>/android/bin/create <temp dir B> <pkg name> <project name>
+		package name sample - ajeetmurty.reference.phoengap
+		project name sample - template
+	3. In eclipse, use 'Android project from existing code', point to <temp dir B>, check 'copy projects to workspace'.
+	4. Do Project->Clean , Restart Eclipse , check Problems view to rule out any outstanding issues.
+	5. When adding project to GIT/CVS/SVN, add 'bin' and 'gen' dirs to ignore list.
+
