@@ -1,0 +1,139 @@
+mysql status - 
+	/etc/init.d/mysqld status
+	mysqladmin -u <user> -p status
+	mysqladmin -u <user> -p processlist
+	mysqladmin -u <user> -p variables
+	mysqladmin -u <user> -p extended-status
+	mysqladmin -u <user> -p version
+	mysqladmin -u <user> -p ping
+
+mysql directories - 
+	config			- /etc/my.cnf
+	data dir 		- /var/lib/mysql/
+	general logs 	- /var/log/mysqld.log
+	error log 		- /var/run/mysqld/mysqld.err
+	slow log 		- /var/lib/mysql/mysqld-slow.log
+	run dir  		- /var/run/mysqld/
+
+generate backup - 
+	mysqldump -R --triggers -u <user> -p -v --quick --single-transaction <db name> | gzip  > dump.gz
+	
+restore backup - 
+	mysql -v -u <user> -p <db name> < temp_backup
+
+list mysql users - 
+	mysql> SELECT host,user,password FROM mysql.user;
+	mysql> SELECT user FROM mysql.user;
+		   
+list variables - 
+	mysql> show variables like '%innodb%';
+	mysql> show variables like '%log%';
+	mysql> SHOW VARIABLES like '%innodb_buffer_pool_size%';
+
+mysql perf - 
+	mysql> SHOW INNODB STATUS
+	mysql> SHOW ENGINE INNODB STATUS;
+
+database size - 
+	mysql> SELECT table_schema "<db name>", sum( data_length + index_length ) / 1024 / 1024 "Data Base Size in MB" FROM information_schema.TABLES GROUP BY table_schema ; 
+
+remove / delete user - 
+	mysql> FLUSH PRIVILEGES;
+	mysql> REVOKE ALL PRIVILEGES, GRANT OPTION FROM '<user>'@'<host>';
+	mysql> DROP USER '<user>'@'<host>';
+	mysql> FLUSH PRIVILEGES;
+
+mysql show logs - 
+	mysql> show variables like '%log%';
+
+mysql login - 
+	mysql -u <user> -p
+		
+mysql start/stop - 
+	etc/init.d/mysqld status
+	etc/init.d/mysqld stop
+	etc/init.d/mysqld start
+		
+change default root passwd - 
+	[root@localhost igor]# /usr/bin/mysqladmin -u root password '<passwd>'
+
+remove delete database - 
+	mysql> DROP DATABASE <db name>;
+	mysql> FLUSH PRIVILEGES
+
+create database - 
+	CREATE DATABASE <db name>;
+
+change/set mysql passwords - 
+	mysqladmin -u root -p<old passwd> password '<new passwd>'
+	mysql> SET PASSWORD FOR '<user>'@'<hostname>' = PASSWORD('<new passwd>');
+		
+mysql version - 
+	mysql> select version();
+		
+mysql list processes  - 
+	mysql> show processlist;
+
+mysql list connections - 
+	mysql> show status like '%onn%';
+		+--------------------------+-------+
+		| Variable_name            | Value |
+		+--------------------------+-------+
+		| Aborted_connects         | 1     | 
+		| Connections              | 3     | 
+		| Max_used_connections     | 1     | 
+		| Ssl_client_connects      | 0     | 
+		| Ssl_connect_renegotiates | 0     | 
+		| Ssl_finished_connects    | 0     | 
+		| Threads_connected        | 1     | 
+		+--------------------------+-------+
+		7 rows in set (0.00 sec)
+		
+create mysql user - 
+	create user '<user>'@'<hostname>' identified by '<new passwd>';
+	grant all on <db name>.* to '<user>'@'<hostname>';
+	grant show databases on *.* to '<user>'@'<hostname>';
+	grant select on *.* to '<user>'@'<hostname>'; 
+
+remove/purge bin logs before a specific date- 
+	mysql> PURGE BINARY LOGS BEFORE '2012-01-01 00:00:00';
+
+remove/purge all bin logs - 
+	mysql> flush logs;
+	mysql> reset master;
+
+mysql table size - 
+	mysql> SELECT CONCAT(table_schema, '.', table_name), CONCAT(ROUND(table_rows / 1000000, 2), 'M') rows, CONCAT(ROUND(data_length / ( 1024 * 1024 * 1024 ), 2), 'G')  DATA, CONCAT(ROUND(index_length / ( 1024 * 1024 * 1024 ), 2), 'G')   idx, CONCAT(ROUND(( data_length + index_length ) / ( 1024 * 1024 * 1024 ), 2), 'G') total_size, ROUND(index_length / data_length, 2) idxfrac FROM   information_schema.TABLES ORDER  BY data_length + index_length DESC LIMIT  10;
+	mysql> SELECT CONCAT(table_schema, '.', table_name),
+	    ->        CONCAT(ROUND(table_rows / 1000000, 2), 'M')                                    rows,
+	    ->        CONCAT(ROUND(data_length / ( 1024 * 1024 * 1024 ), 2), 'G')                    DATA,
+	    ->        CONCAT(ROUND(index_length / ( 1024 * 1024 * 1024 ), 2), 'G')                   idx,
+	    ->        CONCAT(ROUND(( data_length + index_length ) / ( 1024 * 1024 * 1024 ), 2), 'G') total_size,
+	    ->        ROUND(index_length / data_length, 2)                                           idxfrac
+	    -> FROM   information_schema.TABLES
+	    -> ORDER  BY data_length + index_length DESC
+	    -> LIMIT  10;
+
+show first / last records - 
+	SELECT * FROM <db name>.<table name> LIMIT 10;
+	SELECT * FROM <db name>.<table name> ORDER BY TIMESTAMP DESC LIMIT 10;
+
+install/uninstall/remove MySQL 5.5 - 
+	yum remove mysql mysql-*
+	cd /var/lib/mysql
+	rm -rf *
+	yum update
+	
+	## Install Remi Repository on RHEL/CentOS 6.7-6.0 ##
+	rpm -Uvh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-7.noarch.rpm
+	rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm 
+
+	yum update
+	yum --enablerepo=remi list mysql mysql-server
+	yum --enablerepo=remi install mysql mysql-server mysql-devel
+
+	/etc/init.d/mysql status
+	/etc/init.d/mysql start
+
+lockdown/secure mysql - 
+	[$]> mysql_secure_installation
