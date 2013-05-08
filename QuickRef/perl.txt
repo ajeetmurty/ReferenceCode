@@ -1,0 +1,105 @@
+when problems with installing modules as root - 
+	o conf make_install_make_command    'su root -c make'
+	o conf mbuild_install_build_command 'su root -c ./Build'
+
+install modules+depedencies with auto confirm - 
+	o conf prerequisites_policy follow
+	o conf commit
+
+show cpan conf - 
+	cpan> o conf
+
+Force install module - 
+	perl -MCPAN -e "CPAN::Shell->force(qw(install Apache::ParseLog));"
+
+Install Module - 
+	perl -MCPAN -e shell
+		install Archive::Tar
+
+
+date manip commands - 
+	#need to install external package/module
+	# refer to - http://www.icewalkers.com/Perl/5.8.0/lib/Date/Manip.html
+	# %Xt     : the value of all fields expressed in units of X
+	# extract from date - http://docstore.mik.ua/orelly/perl/cookbook/ch03_08.htm
+
+
+install modules - 
+
+		install perl modules - 
+			perl Makefile.PL
+			make
+			make test
+			make install
+
+		to install modules in solaris - 
+			/usr/perl5/5.8.4/bin/perlgcc Makefile.PL; make
+		
+		add URL to cpan - 
+			perl -MCPAN -e 'shell'
+			o conf
+			o conf urllist push http://mirror.jmu.edu/pub/CPAN
+			o conf commit
+		
+		list of cpan sites - http://www.cpan.org/SITES.html
+			http://mirror.jmu.edu/pub/CPAN
+			http://mirrors.abdicar.com/CPAN/
+	        http://httpupdate3.cpanel.net/CPAN/
+	        http://cpan.msi.umn.edu/
+		
+		CPAN url for VA - 
+			http://mirror.jmu.edu/pub/CPAN
+			default URL - ftp://ftp.perl.org/pub/CPAN
+		
+		show cpan config - 
+			o conf
+		
+		physical CPAN config file - 
+			/usr/lib/perl5/5.8.8/CPAN/Config.pm
+		
+		update perl - 
+			perl -MCPAN -e 'shell'
+			install Bundle::CPAN
+			reload CPAN
+		
+				 There's a new CPAN.pm version (v1.9800) available!
+				  [Current version is v1.7602]
+				  You might want to try
+				    install Bundle::CPAN
+				    reload cpan
+				  without quitting the current session. It should be a seamless upgrade
+				  while we are running...
+	
+		
+		chekc if perl packages exist - 
+			perl -MDigest::MD5 -e 1
+			perl -MNet::SFTP::Foreign -e 1
+		
+		save CPAN changes - 
+			o conf commit
+
+		regarding perl and gcc problems -
+			http://opensolaris.org/jive/thread.jspa?threadID=106061
+			perl -MCPAN -e 'shell'
+			perl -MNet::SFTP::Foreign -e 1
+
+
+		NOT VERIFIED - How to Add Software Packages (pkgadd)
+		
+			http://docs.sun.com/app/docs/doc/817-1985/6mhm8o60l?a=view
+			
+			=> How to Add Software Packages (pkgadd)
+			
+			maybe this way:
+			
+			---
+			gunzip curl-7.16.4_Sol10-x86-local.gz
+			pkgadd -d curl-7.16.4_Sol10-x86-local
+			or
+			pkgadd -d . curl-7.16.4_Sol10-x86-local
+			---
+			maybe the manpage for pkgadd will help.
+			Do you know this links:
+			http://docs.sun.com/app/docs/doc/817-1985
+			http://docs.sun.com/app/docs/prod/solaris.10
+			
