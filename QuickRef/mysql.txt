@@ -1,3 +1,11 @@
+mysql login - 
+	mysql -u <user> -p
+		
+mysql start/stop - 
+	etc/init.d/mysqld status
+	etc/init.d/mysqld stop
+	etc/init.d/mysqld start
+
 mysql status - 
 	/etc/init.d/mysqld status
 	mysqladmin -u <user> -p status
@@ -25,17 +33,11 @@ list mysql users -
 	mysql> SELECT host,user,password FROM mysql.user;
 	mysql> SELECT user FROM mysql.user;
 		   
-list variables - 
-	mysql> show variables like '%innodb%';
-	mysql> show variables like '%log%';
-	mysql> SHOW VARIABLES like '%innodb_buffer_pool_size%';
-
-mysql perf - 
-	mysql> SHOW INNODB STATUS
-	mysql> SHOW ENGINE INNODB STATUS;
-
-database size - 
-	mysql> SELECT table_schema "<db name>", sum( data_length + index_length ) / 1024 / 1024 "Data Base Size in MB" FROM information_schema.TABLES GROUP BY table_schema ; 
+create mysql user - 
+	create user '<user>'@'<hostname>' identified by '<new passwd>';
+	grant all on <db name>.* to '<user>'@'<hostname>';
+	grant show databases on *.* to '<user>'@'<hostname>';
+	grant select on *.* to '<user>'@'<hostname>'; 
 
 remove / delete user - 
 	mysql> FLUSH PRIVILEGES;
@@ -43,19 +45,27 @@ remove / delete user -
 	mysql> DROP USER '<user>'@'<host>';
 	mysql> FLUSH PRIVILEGES;
 
-mysql show logs - 
-	mysql> show variables like '%log%';
-
-mysql login - 
-	mysql -u <user> -p
-		
-mysql start/stop - 
-	etc/init.d/mysqld status
-	etc/init.d/mysqld stop
-	etc/init.d/mysqld start
-		
 change default root passwd - 
 	[root@localhost igor]# /usr/bin/mysqladmin -u root password '<passwd>'
+
+change/set mysql passwords - 
+	mysqladmin -u root -p<old passwd> password '<new passwd>'
+	mysql> SET PASSWORD FOR '<user>'@'<hostname>' = PASSWORD('<new passwd>');
+
+database size - 
+	mysql> SELECT table_schema "<db name>", sum( data_length + index_length ) / 1024 / 1024 "Data Base Size in MB" FROM information_schema.TABLES GROUP BY table_schema ; 
+
+mysql table size - 
+	mysql> SELECT CONCAT(table_schema, '.', table_name), CONCAT(ROUND(table_rows / 1000000, 2), 'M') rows, CONCAT(ROUND(data_length / ( 1024 * 1024 * 1024 ), 2), 'G')  DATA, CONCAT(ROUND(index_length / ( 1024 * 1024 * 1024 ), 2), 'G')   idx, CONCAT(ROUND(( data_length + index_length ) / ( 1024 * 1024 * 1024 ), 2), 'G') total_size, ROUND(index_length / data_length, 2) idxfrac FROM   information_schema.TABLES ORDER  BY data_length + index_length DESC LIMIT  10;
+	mysql> SELECT CONCAT(table_schema, '.', table_name),
+	    ->        CONCAT(ROUND(table_rows / 1000000, 2), 'M')                                    rows,
+	    ->        CONCAT(ROUND(data_length / ( 1024 * 1024 * 1024 ), 2), 'G')                    DATA,
+	    ->        CONCAT(ROUND(index_length / ( 1024 * 1024 * 1024 ), 2), 'G')                   idx,
+	    ->        CONCAT(ROUND(( data_length + index_length ) / ( 1024 * 1024 * 1024 ), 2), 'G') total_size,
+	    ->        ROUND(index_length / data_length, 2)                                           idxfrac
+	    -> FROM   information_schema.TABLES
+	    -> ORDER  BY data_length + index_length DESC
+	    -> LIMIT  10;
 
 remove delete database - 
 	mysql> DROP DATABASE <db name>;
@@ -64,10 +74,14 @@ remove delete database -
 create database - 
 	CREATE DATABASE <db name>;
 
-change/set mysql passwords - 
-	mysqladmin -u root -p<old passwd> password '<new passwd>'
-	mysql> SET PASSWORD FOR '<user>'@'<hostname>' = PASSWORD('<new passwd>');
-		
+list variables - 
+	mysql> show variables like '%innodb%';
+	mysql> show variables like '%log%';
+	mysql> SHOW VARIABLES like '%innodb_buffer_pool_size%';
+
+mysql show logs - 
+	mysql> show variables like '%log%';
+
 mysql version - 
 	mysql> select version();
 		
@@ -89,12 +103,6 @@ mysql list connections -
 		+--------------------------+-------+
 		7 rows in set (0.00 sec)
 		
-create mysql user - 
-	create user '<user>'@'<hostname>' identified by '<new passwd>';
-	grant all on <db name>.* to '<user>'@'<hostname>';
-	grant show databases on *.* to '<user>'@'<hostname>';
-	grant select on *.* to '<user>'@'<hostname>'; 
-
 remove/purge bin logs before a specific date- 
 	mysql> PURGE BINARY LOGS BEFORE '2012-01-01 00:00:00';
 
@@ -102,21 +110,13 @@ remove/purge all bin logs -
 	mysql> flush logs;
 	mysql> reset master;
 
-mysql table size - 
-	mysql> SELECT CONCAT(table_schema, '.', table_name), CONCAT(ROUND(table_rows / 1000000, 2), 'M') rows, CONCAT(ROUND(data_length / ( 1024 * 1024 * 1024 ), 2), 'G')  DATA, CONCAT(ROUND(index_length / ( 1024 * 1024 * 1024 ), 2), 'G')   idx, CONCAT(ROUND(( data_length + index_length ) / ( 1024 * 1024 * 1024 ), 2), 'G') total_size, ROUND(index_length / data_length, 2) idxfrac FROM   information_schema.TABLES ORDER  BY data_length + index_length DESC LIMIT  10;
-	mysql> SELECT CONCAT(table_schema, '.', table_name),
-	    ->        CONCAT(ROUND(table_rows / 1000000, 2), 'M')                                    rows,
-	    ->        CONCAT(ROUND(data_length / ( 1024 * 1024 * 1024 ), 2), 'G')                    DATA,
-	    ->        CONCAT(ROUND(index_length / ( 1024 * 1024 * 1024 ), 2), 'G')                   idx,
-	    ->        CONCAT(ROUND(( data_length + index_length ) / ( 1024 * 1024 * 1024 ), 2), 'G') total_size,
-	    ->        ROUND(index_length / data_length, 2)                                           idxfrac
-	    -> FROM   information_schema.TABLES
-	    -> ORDER  BY data_length + index_length DESC
-	    -> LIMIT  10;
-
 show first / last records - 
 	SELECT * FROM <db name>.<table name> LIMIT 10;
 	SELECT * FROM <db name>.<table name> ORDER BY TIMESTAMP DESC LIMIT 10;
+
+mysql perf - 
+	mysql> SHOW INNODB STATUS
+	mysql> SHOW ENGINE INNODB STATUS;
 
 install/uninstall/remove MySQL 5.5 - 
 	yum remove mysql mysql-*
@@ -137,3 +137,4 @@ install/uninstall/remove MySQL 5.5 -
 
 lockdown/secure mysql - 
 	[$]> mysql_secure_installation
+	
