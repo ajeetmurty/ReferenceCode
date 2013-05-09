@@ -10,9 +10,9 @@ Log::Log4perl::init($LOG_CONF_FILE);
 my $logp = Log::Log4perl->get_logger();
 
 sub do_something {
-	$logp->info('doing info');
-	$logp->debug('doing debug');
-	$logp->error('doing error');
+	$logp->info('doing log info');
+	$logp->debug('doing log debug');
+	$logp->error('doing log error');
 }
 
 #main
