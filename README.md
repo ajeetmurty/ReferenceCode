@@ -3,8 +3,6 @@ ReferenceCode
 
 Description: BoilerPlate and POC code.
 
-Author: Ajeet Murty | ajeetmurty.dev@gmail.com
-
 Projects:
 
 0.  QuickRef:   commands for OS, MySQL, PhoneGap.
