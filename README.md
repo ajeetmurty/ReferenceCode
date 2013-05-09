@@ -1,9 +1,10 @@
 ReferenceCode
 =============
 
-Description: BoilerPlate and POC code.
+## Description
+BoilerPlate and POC code.
 
-Projects:
+## Projects
 
 0.  QuickRef:   commands for OS, MySQL, PhoneGap.
 1.  java:       DS, Threads, Algos, Games.
@@ -11,3 +12,7 @@ Projects:
 3.  web:        HTML, CSS, JS, AJAX, JQuery. 
 4.  phonegap:   Template, DB, Sensors.
 5.  restful:    Restful Server and Client.
+
+## License
+
+(MIT License) - Copyright (c) 2013 Ajeet Murty
