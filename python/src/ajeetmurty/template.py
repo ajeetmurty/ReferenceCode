@@ -11,7 +11,8 @@ def main():
     logr.info('stop')
 
 def print_sys_info():
-    logr.info(sys.version)
+    logr.info('login: '+ os.getlogin())
+    logr.info('os: '+ sys.platform)
 
 if __name__ == '__main__':
     main()
