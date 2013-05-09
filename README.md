@@ -15,4 +15,4 @@ BoilerPlate and POC code.
 
 ## License
 
-(MIT License) - Copyright (c) 2013 Ajeet Murty
+[MIT License](http://opensource.org/licenses/MIT) - Copyright (c) 2013 Ajeet Murty
