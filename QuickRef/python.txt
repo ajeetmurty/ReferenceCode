@@ -1,0 +1,11 @@
+installing pip (python package manager) in win64|py3.3.1 environment -
+	Link - http://stackoverflow.com/questions/1449494/how-do-i-install-python-packages-on-windows 
+	Install distribute
+		curl http://python-distribute.org/distribute_setup.py | python
+	Install pip
+		curl https://raw.github.com/pypa/pip/master/contrib/get-pip.py | python 
+	Add 'Scripts' dir to win path variable.
+
+installing new packages - 
+	pip install <module name>
+
