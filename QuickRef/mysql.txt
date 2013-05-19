@@ -118,22 +118,21 @@ mysql perf -
 	mysql> SHOW INNODB STATUS
 	mysql> SHOW ENGINE INNODB STATUS;
 
-install/uninstall/remove MySQL 5.5 - 
+install/uninstall/remove MySQL - 
+	yum update
+	yum list installed
 	yum remove mysql mysql-*
 	cd /var/lib/mysql
 	rm -rf *
-	yum update
+	yum install mysql.x86_64 mysql-devel.x86_64 mysql-server.x86_64
 	
-	## Install Remi Repository on RHEL/CentOS 6.7-6.0 ##
-	rpm -Uvh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-7.noarch.rpm
-	rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm 
-
-	yum update
-	yum --enablerepo=remi list mysql mysql-server
-	yum --enablerepo=remi install mysql mysql-server mysql-devel
-
-	/etc/init.d/mysql status
-	/etc/init.d/mysql start
+install MySQL 5.5 - 
+	Install Remi Repository on RHEL/CentOS 6.7-6.0 - 
+		rpm -Uvh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-7.noarch.rpm
+		rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm 
+		yum update
+		yum --enablerepo=remi list mysql mysql-server
+		yum --enablerepo=remi install mysql mysql-server mysql-devel
 
 lockdown/secure mysql - 
 	[$]> mysql_secure_installation
