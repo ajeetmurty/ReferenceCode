@@ -25,7 +25,7 @@ sub doTemplate {
 #main
 $logr->info('start');
 eval {
-	$logr->info('this is template.');
+	$logr->info('this is a template.');
 	$logr->info("executed by: $userName\@$hostName");
 	$logr->info( 'execution path: ' . abs_path($0) );
 	doTemplate();
