@@ -9,28 +9,28 @@ use Cwd 'abs_path';
 use Log::Log4perl;
 
 #vars
-my $log_conf = "log4perl.conf";
-Log::Log4perl::init($log_conf);
-my $logp     = Log::Log4perl->get_logger();
-my $userName = $ENV{'LOGNAME'} || 'unknown-user';
-my $hostName = hostname || 'unknown-hostname';
+my $logConfig = 'log4perl.conf';
+Log::Log4perl::init($logConfig);
+my $logr     = Log::Log4perl->get_logger();
+my $userName = getlogin || 'undef-user';
+my $hostName = hostname || 'undef-hostname';
 
 #methods
 sub doTemplate {
-	$logp->info('doing template');
-	$logp->debug('doing log debug');
-	$logp->error('doing log error');
+	$logr->info('doing template');
+	$logr->debug('doing log debug');
+	$logr->error('doing log error');
 }
 
 #main
-$logp->info('start');
+$logr->info('start');
 eval {
-	$logp->info('this is template.');
-	$logp->info("executed by: $userName\@$hostName");
-	$logp->info( 'execution path: ' . abs_path($0) );
+	$logr->info('this is template.');
+	$logr->info("executed by: $userName\@$hostName");
+	$logr->info( 'execution path: ' . abs_path($0) );
 	doTemplate();
 };
 if ($@) {
-	$logp->error( 'error: ', $@ );
+	$logr->error( 'error: ', $@ );
 }
-$logp->info('stop');
+$logr->info('stop');
