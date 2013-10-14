@@ -21,7 +21,7 @@ my @smtpToAddress   = ( 'to01@smtp.org', 'to02@smtp.org' );
 
 #methods
 sub sendEmail() {
-	$logr->info("preparing email.");
+	$logr->info('preparing email.');
 
 	my $emailSubject  = "test email from $hostName";
 	my $emailContent  = "test email details.\n\tsent at: " . localtime() . "\n\tsent from: $hostName \n\tsent by: $userName";
