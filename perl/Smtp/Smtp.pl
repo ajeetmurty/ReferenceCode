@@ -60,7 +60,7 @@ sub sendEmail() {
 #main
 $logr->info('start');
 eval {
-	$logr->info('this is smtp.');
+	$logr->info('this is a smtp tool.');
 	$logr->info("executed by: $userName\@$hostName");
 	$logr->info( 'execution path: ' . abs_path($0) );
 	sendEmail();
