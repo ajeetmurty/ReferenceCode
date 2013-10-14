@@ -5,8 +5,8 @@ use strict;
 use warnings 'FATAL' => 'all';
 use Sys::Hostname;
 use Cwd 'abs_path';
-use Log::Log4perl;
-use Net::SMTP;    #need to install external package/module
+use Log::Log4perl;    #need to install external package/module
+use Net::SMTP;        #need to install external package/module
 
 #vars
 my $logConfig = 'log4perl.conf';
