@@ -53,7 +53,7 @@ sub sendEmail() {
 			die $logr->error("unable to establish connection: $smtpServerHost:$smtpServerPort");
 		}
 	} else {
-		die $logr->error("recipient email addresses invalid/missing.");
+		die $logr->error('recipient email addresses invalid/missing.');
 	}
 }
 
