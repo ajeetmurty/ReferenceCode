@@ -7,6 +7,15 @@ check if perl packags exist -
 	perl -MDigest::MD5 -e 1
 	perl -MNet::SFTP::Foreign -e 1
 
+edit solaris CC/GCC config - 
+	config file - /usr/perl5/5.XX/lib/sun4-solaris/Config_heavy.pl
+	from - 
+		cccdlflags='-KPIC'
+		optimize='-xO4 '
+	to - 
+		cccdlflags='-fPIC'
+		optimize='-O3'
+
 install perl modules from tgz - 
 	perl Makefile.PL
 	make
