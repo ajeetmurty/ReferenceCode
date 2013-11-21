@@ -18,4 +18,4 @@ BoilerPlate and POC code.
 [MIT License](http://opensource.org/licenses/MIT) - Copyright © 2013 [Ajeet Murty](http://www.linkedin.com/in/ajeetmurty)
 
 
-![this is home](https://raw.github.com/ajeetmurty/ReferenceCode/master/QuickRef/logo/earth_github.png "this is home")
+![this is home](https://raw.github.com/ajeetmurty/ReferenceCode/master/QuickRef/logo/earth_compressed.png "this is home")
