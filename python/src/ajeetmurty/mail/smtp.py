@@ -39,7 +39,6 @@ def do_smtp():
     smtp.sendmail(smtp_from_address, smtp_to_addresses, message_formatted.as_string())
     smtp.quit()
     logr.info('email sent')
-
     
 if __name__ == '__main__':
     main()
