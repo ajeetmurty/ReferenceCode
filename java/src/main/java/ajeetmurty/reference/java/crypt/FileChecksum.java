@@ -3,9 +3,7 @@ package ajeetmurty.reference.java.crypt;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
-import java.security.DigestInputStream;
 import java.security.MessageDigest;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
