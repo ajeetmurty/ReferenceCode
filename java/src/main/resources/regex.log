@@ -1,0 +1,4 @@
+15.14.25.3 - - [17/Jan/2013:07:54:22 -0500] "OPTIONS /open/service HTTP/1.1" 500 305 "-" "Microsoft Office Protocol Discovery" "-"
+16.143.17.6 - - [24/Jan/2013:10:34:00 -0500] "POST /open/service HTTP/1.0" 200 3376 "-" "-" "text/xml"
+9.31.6.245 - - [07/Feb/2013:00:02:18 -0500] "GET /open/service HTTP/1.0" 302 - "-" "Pingdom.com_bot_version_1.4_(http://www.pingdom.com)" "-"
+168.13.977.15 - - [21/Mar/2013:14:04:36 -0500] "POST /open/service HTTP/1.0" 502 2253 "-" "-" "text/xml"
