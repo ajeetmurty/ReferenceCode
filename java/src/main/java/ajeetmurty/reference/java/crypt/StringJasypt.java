@@ -20,26 +20,30 @@ public class StringJasypt {
 	}
 
 	private void doJasypt() {
-		logp.info("input plain text: " + plainText);
-		logp.info("encryption/decryption key: " + symettricEncryptionKey);
-		String encryptedText = null;
-		String decryptedText = null;
+		try {
+			logp.info("input plain text: " + plainText);
+			logp.info("encryption/decryption key: " + symettricEncryptionKey);
+			String encryptedText = null;
+			String decryptedText = null;
 
-		if (plainText != null && !plainText.isEmpty()) {
-			encryptedText = crypString(plainText, symettricEncryptionKey, true);
-		} else {
-			logp.error("input plain text is null or empty");
+			if (plainText != null && !plainText.isEmpty()) {
+				encryptedText = crypString(plainText, symettricEncryptionKey, true);
+			} else {
+				logp.error("input plain text is null or empty");
+			}
+
+			logp.info("encrypted version of plain text: " + encryptedText);
+
+			if (encryptedText != null && !encryptedText.isEmpty()) {
+				decryptedText = crypString(encryptedText, symettricEncryptionKey, false);
+			} else {
+				logp.error("encrypted text is null or empty");
+			}
+
+			logp.info("decrypted version of encrypted plain text: " + decryptedText);
+		} catch (Exception e) {
+			logp.error(e.getMessage(), e);
 		}
-
-		logp.info("encrypted version of plain text: " + encryptedText);
-
-		if (encryptedText != null && !encryptedText.isEmpty()) {
-			decryptedText = crypString(encryptedText, symettricEncryptionKey, false);
-		} else {
-			logp.error("encrypted text is null or empty");
-		}
-
-		logp.info("decrypted version of encrypted plain text: " + decryptedText);
 	}
 
 	private String crypString(String inputText, String key, boolean encrypt) {
