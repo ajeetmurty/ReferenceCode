@@ -10,6 +10,8 @@ mongo_ip = '192.168.0.104'
 mongo_port = 27017
 mongo_db = 'mongotest'
 mongo_collection = 'mongotesttable'
+mongo_token01 = 'testuser'
+mongo_token02 = 'testpassword'
 
 def main():
     logr.info('start')
@@ -39,6 +41,7 @@ def commit_to_db(input_dict):
     client = MongoClient(mongo_ip, mongo_port)
     logr.info('mongodb server info: ' + str(client.server_info()))
     db = client[mongo_db]
+    db.authenticate(mongo_token01,mongo_token02)
     coll = db[mongo_collection]
     obj_id = coll.insert(input_dict)
     logr.info('commit successful: ' + str(obj_id))
