@@ -1,48 +1,43 @@
 
+________________________________________________________________
 
-generate artifacts - 
+cloudera ops - 
 
-	right click on eclipse hadoop project and click run_as->maven_install
-	[cloudera@localhost input]$ cd /home/cloudera/Desktop/
-	[cloudera@localhost input]$ mkdir wordcount
-	[cloudera@localhost input]$ cd /home/cloudera/Desktop/wordcount
-	copy generated Jar to CDH VM at - /home/cloudera/Desktop/wordcount/hadoop-0.0.1.jar
-	[cloudera@localhost input]$ cd /home/cloudera/Desktop/wordcount
-	[cloudera@localhost input]$ mkdir input
-	[cloudera@localhost input]$ cd /home/cloudera/Desktop/wordcount/input
-	[cloudera@localhost input]$ vi text01.txt
-	[cloudera@localhost input]$ vi text02.txt
+info - http://www.cloudera.com/content/cloudera-content/cloudera-docs/HadoopTutorial/CDH4/Hadoop-Tutorial/ht_usage.html?scroll=topic_5_2
+
+create hdfs dir - 
+	$ sudo bash
+	$ su hdfs
+	$ hadoop fs -mkdir /user/cloudera 
+	$ hadoop fs -chown cloudera /user/cloudera
+	$ exit
+	$ su cloudera
+	$ hadoop fs -mkdir /user/cloudera/test /user/cloudera/test/input
+
+upload to hdfs dir - 
+	hadoop fs -put source.file /user/cloudera/test/input 
+
+run mapreduce job - 
+	right click on eclipse mapreduce project and click run_as->maven_install
+	copy generated jar to vm - /home/cloudera/test/mapreduce-0.0.1.jar
+	run command - 
+		hadoop jar <jar name> <package name and main class> <dir that contains input file/s> <dir that will contain output>
+		hadoop jar mapreduce-0.0.1.jar ajeetmurty.reference.mapreduce.LogCount /user/cloudera/test/input /user/cloudera/test/output
+	delete output dir - 
+		hadoop fs -rm -r /user/cloudera/test/output
+
+browsing hdfs - 
+	hadoop fs -cat /user/cloudera/test/output/part-00000 >> output.txt
+	hadoop fs -ls -h /user/cloudera/test/output
+	hadoop fs -rm -r /user/cloudera/test/output
+
+browse hdfs via browser - 
+	cloudera home - http://localhost.localdomain:7180/cmf/home
+	cdh browser - hdfs1 >> instances >> namenode (localhost) >> NameNode Web UI >> Browse the filesystem.
+	hue browser - hue1 >> Hue Web UI >> Go! >> Hue Home >> Files.
 
 
-copy artifacts to hdfs - 
-
-	[cloudera@localhost input]$ cd /home/cloudera/Desktop/wordcount
-	[cloudera@localhost input]$ hadoop fs -mkdir /user/cloudera /user/cloudera/wordcount /user/cloudera/wordcount/input
-	[cloudera@localhost input]$ hadoop fs -put /home/cloudera/Desktop/wordcount/input/text* /user/cloudera/wordcount/input
-
-verify artifacts - 
-
-	[cloudera@localhost wordcount]$ hadoop fs -ls /user/cloudera/wordcount/input
-	Found 2 items
-	-rw-r--r--   3 cloudera cloudera        189 2013-07-18 02:50 /user/cloudera/wordcount/input/text01.txt
-	-rw-r--r--   3 cloudera cloudera         53 2013-07-18 02:50 /user/cloudera/wordcount/input/text02.txt
-
-	[cloudera@localhost wordcount]$ hadoop fs -cat /user/cloudera/wordcount/input/text*
-	sanford katie
-	sanford matthew
-	matthew noah
-	matthew noah
-	matthew zach
-	katie sarah
-	sarah gabriel
-	elias gabriel
-	katie sarah
-	elias katie
-	jonah sanford
-	jonah matthew
-	jonah gabriel
-	jonah sanford
+________________________________________________________________
 
 
 
-[cloudera@localhost input]$ hadoop fs -put /home/cloudera/Desktop/wordcount/hadoop-0.0.1.jar hdfs://localhost/user/cloudera/
