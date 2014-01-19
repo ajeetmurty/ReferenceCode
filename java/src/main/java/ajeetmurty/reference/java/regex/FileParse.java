@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
 public class FileParse {
 	private final Logger logp = LoggerFactory.getLogger(this.getClass().getName());
 	private final String inputLogFilePath = "src/main/resources/regex.log";
-	private final String regex = "^((\\d){1,3}\\.(\\d){1,3}\\.(\\d){1,3}\\.(\\d){1,3})(.*)$";
+	private final String regex = "^(\\S+)\\s(.*)$";
 
 	public static void main(String[] args) {
 		new FileParse();
@@ -32,15 +32,22 @@ public class FileParse {
 				Matcher matcher = pattern.matcher("");
 
 				BufferedReader br = new BufferedReader(new FileReader(inputFile));
+				long linesTotal = 0, linesMatched = 0;
 				String line = null;
 				while ((line = br.readLine()) != null) {
+					linesTotal++;
 					if (matcher.reset(line).matches()) {
-						logp.info("line matched & host extracted: " + matcher.group(1));
+						linesMatched++;
+						logp.info(String.format("line matched & host extracted: >%1$s<", matcher.group(1)));
 					} else {
 						logp.error("line not matched: " + line);
 					}
 				}
 				br.close();
+
+				logp.info("total lines in file: " + linesTotal);
+				logp.info("total matches: " + linesMatched);
+				logp.info("match failed: " + (linesTotal - linesMatched));
 			} else {
 				logp.error("input log file not found / not readable");
 			}
