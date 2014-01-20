@@ -79,7 +79,7 @@ ________________________________________________________________
 
 aws-emr ops - 
 
-generate security credentials before starting first job flow.
+generate security credentials before starting first job flow - 
 	right top corner username >> Security Credentials >> Access Keys >> Create New Access Key
 
 guide - 
