@@ -1,6 +1,45 @@
 
 ________________________________________________________________
 
+maven fixes - 
+
+edit pom to:
+	1. fix java compiler version.
+	2. put main class in manifest file in jar.
+		<project...>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-jar-plugin</artifactId>
+						<configuration>
+							<archive>
+								<manifest>
+									<mainClass>ajeetmurty.reference.mapreduce.logcount.LogCount</mainClass>
+								</manifest>
+							</archive>
+						</configuration>
+					</plugin>
+				</plugins>
+				<pluginManagement>
+					<plugins>
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-compiler-plugin</artifactId>
+							<configuration>
+								<source>1.6</source>
+								<target>1.6</target>
+							</configuration>
+						</plugin>
+					</plugins>
+				</pluginManagement>
+			</build>
+		</project>
+
+right click project >> Maven >> Update Project
+
+________________________________________________________________
+
 cloudera ops - 
 
 info - http://www.cloudera.com/content/cloudera-content/cloudera-docs/HadoopTutorial/CDH4/Hadoop-Tutorial/ht_usage.html?scroll=topic_5_2
@@ -22,7 +61,7 @@ run mapreduce job -
 	copy generated jar to vm - /home/cloudera/test/mapreduce-0.0.1.jar
 	run command - 
 		hadoop jar <jar name> <package name and main class> <dir that contains input file/s> <dir that will contain output>
-		hadoop jar mapreduce-0.0.1.jar ajeetmurty.reference.mapreduce.LogCount /user/cloudera/test/input /user/cloudera/test/output
+		hadoop jar mapreduce-0.0.1.jar /user/cloudera/test/input /user/cloudera/test/output
 	delete output dir - 
 		hadoop fs -rm -r /user/cloudera/test/output
 
@@ -36,8 +75,23 @@ browse hdfs via browser -
 	cdh browser - hdfs1 >> instances >> namenode (localhost) >> NameNode Web UI >> Browse the filesystem.
 	hue browser - hue1 >> Hue Web UI >> Go! >> Hue Home >> Files.
 
+________________________________________________________________
+
+aws-emr ops - 
+
+generate security credentials before starting first job flow.
+	right top corner username >> Security Credentials >> Access Keys >> Create New Access Key
+
+guide - 
+	http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-launch-custom-jar-cli.html
+
+paths - 
+	log - s3://<bucket name>/mapreduce/log
+	jar - s3://<bucket name>/mapreduce/mapreduce-0.0.1.jar
+	arguments - 
+		s3://<bucket name>/mapreduce/input
+		s3://<bucket name>/mapreduce/output
 
 ________________________________________________________________
 
-
-
+________________________________________________________________
