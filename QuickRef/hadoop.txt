@@ -1,45 +1,6 @@
 
 ________________________________________________________________
 
-maven fixes - 
-
-edit pom to:
-	1. fix java compiler version.
-	2. put main class in manifest file in jar.
-		<project...>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-jar-plugin</artifactId>
-						<configuration>
-							<archive>
-								<manifest>
-									<mainClass>ajeetmurty.reference.mapreduce.logcount.LogCount</mainClass>
-								</manifest>
-							</archive>
-						</configuration>
-					</plugin>
-				</plugins>
-				<pluginManagement>
-					<plugins>
-						<plugin>
-							<groupId>org.apache.maven.plugins</groupId>
-							<artifactId>maven-compiler-plugin</artifactId>
-							<configuration>
-								<source>1.6</source>
-								<target>1.6</target>
-							</configuration>
-						</plugin>
-					</plugins>
-				</pluginManagement>
-			</build>
-		</project>
-
-right click project >> Maven >> Update Project
-
-________________________________________________________________
-
 cloudera ops - 
 
 info - http://www.cloudera.com/content/cloudera-content/cloudera-docs/HadoopTutorial/CDH4/Hadoop-Tutorial/ht_usage.html?scroll=topic_5_2
@@ -91,6 +52,45 @@ paths -
 	arguments - 
 		s3://<bucket name>/mapreduce/input
 		s3://<bucket name>/mapreduce/output
+
+________________________________________________________________
+
+maven fixes - 
+
+edit pom to:
+	1. fix java compiler version.
+	2. put main class in manifest file in jar.
+		<project...>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-jar-plugin</artifactId>
+						<configuration>
+							<archive>
+								<manifest>
+									<mainClass>ajeetmurty.reference.mapreduce.logcount.LogCount</mainClass>
+								</manifest>
+							</archive>
+						</configuration>
+					</plugin>
+				</plugins>
+				<pluginManagement>
+					<plugins>
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-compiler-plugin</artifactId>
+							<configuration>
+								<source>1.6</source>
+								<target>1.6</target>
+							</configuration>
+						</plugin>
+					</plugins>
+				</pluginManagement>
+			</build>
+		</project>
+
+right click project >> Maven >> Update Project
 
 ________________________________________________________________
 
@@ -160,5 +160,4 @@ amazon datasets - http://aws.amazon.com/datasets/
 ________________________________________________________________
 
 ________________________________________________________________
-
 
