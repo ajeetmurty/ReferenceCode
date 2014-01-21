@@ -94,4 +94,71 @@ paths -
 
 ________________________________________________________________
 
+stats - 
+
+aws-emr -  
+	mapreduce job time - 10 minutes
+	stdout - 
+		14/01/20 13:03:25 INFO mapred.JobClient: Counters: 33
+		14/01/20 13:03:25 INFO mapred.JobClient:   File System Counters
+		14/01/20 13:03:25 INFO mapred.JobClient:     FILE: Number of bytes read=31150940
+		14/01/20 13:03:25 INFO mapred.JobClient:     FILE: Number of bytes written=48858289
+		14/01/20 13:03:25 INFO mapred.JobClient:     FILE: Number of read operations=0
+		14/01/20 13:03:25 INFO mapred.JobClient:     FILE: Number of large read operations=0
+		14/01/20 13:03:25 INFO mapred.JobClient:     FILE: Number of write operations=0
+		14/01/20 13:03:25 INFO mapred.JobClient:     HDFS: Number of bytes read=1796462315
+		14/01/20 13:03:25 INFO mapred.JobClient:     HDFS: Number of bytes written=24010890
+		14/01/20 13:03:25 INFO mapred.JobClient:     HDFS: Number of read operations=33
+		14/01/20 13:03:25 INFO mapred.JobClient:     HDFS: Number of large read operations=0
+		14/01/20 13:03:25 INFO mapred.JobClient:     HDFS: Number of write operations=2
+		14/01/20 13:03:25 INFO mapred.JobClient:   Job Counters 
+		14/01/20 13:03:25 INFO mapred.JobClient:     Launched map tasks=15
+		14/01/20 13:03:25 INFO mapred.JobClient:     Launched reduce tasks=1
+		14/01/20 13:03:25 INFO mapred.JobClient:     Data-local map tasks=15
+		14/01/20 13:03:25 INFO mapred.JobClient:     Total time spent by all maps in occupied slots (ms)=943035
+		14/01/20 13:03:25 INFO mapred.JobClient:     Total time spent by all reduces in occupied slots (ms)=48138
+		14/01/20 13:03:25 INFO mapred.JobClient:     Total time spent by all maps waiting after reserving slots (ms)=0
+		14/01/20 13:03:25 INFO mapred.JobClient:     Total time spent by all reduces waiting after reserving slots (ms)=0
+		14/01/20 13:03:25 INFO mapred.JobClient:   Map-Reduce Framework
+		14/01/20 13:03:25 INFO mapred.JobClient:     Map input records=9851086
+		14/01/20 13:03:25 INFO mapred.JobClient:     Map output records=9851086
+		14/01/20 13:03:25 INFO mapred.JobClient:     Map output bytes=185089235
+		14/01/20 13:03:25 INFO mapred.JobClient:     Input split bytes=1957
+		14/01/20 13:03:25 INFO mapred.JobClient:     Combine input records=11827135
+		14/01/20 13:03:25 INFO mapred.JobClient:     Combine output records=3740790
+		14/01/20 13:03:25 INFO mapred.JobClient:     Reduce input groups=1461846
+		14/01/20 13:03:25 INFO mapred.JobClient:     Reduce shuffle bytes=15136181
+		14/01/20 13:03:25 INFO mapred.JobClient:     Reduce input records=1764741
+		14/01/20 13:03:25 INFO mapred.JobClient:     Reduce output records=1461846
+		14/01/20 13:03:25 INFO mapred.JobClient:     Spilled Records=5505531
+		14/01/20 13:03:25 INFO mapred.JobClient:     CPU time spent (ms)=357400
+		14/01/20 13:03:25 INFO mapred.JobClient:     Physical memory (bytes) snapshot=2393157632
+		14/01/20 13:03:25 INFO mapred.JobClient:     Virtual memory (bytes) snapshot=10626809856
+		14/01/20 13:03:25 INFO mapred.JobClient:     Total committed heap usage (bytes)=1719201792
+		14/01/20 13:03:25 INFO mapred.JobClient:   org.apache.hadoop.mapreduce.lib.input.FileInputFormatCounter
+		14/01/20 13:03:25 INFO mapred.JobClient:     BYTES_READ=1795608390
+ 
+cloudera -
+	mapreduce job time - 14/01/20 12:55:12 -- 14/01/20 13:03:25
+	other metrics - Management Console >> CloudWatch >> EMR
+
 ________________________________________________________________
+
+aws cli tool - 
+
+install & configure - http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html
+commands - http://aws.amazon.com/cli/
+
+________________________________________________________________
+
+datasets - 
+
+nasa apache access logs - http://ita.ee.lbl.gov/html/contrib/NASA-HTTP.html
+star-wars-kid apache access logs - http://waxy.org/2008/05/star_wars_kid_the_data_dump/
+amazon datasets - http://aws.amazon.com/datasets/
+
+________________________________________________________________
+
+________________________________________________________________
+
+
