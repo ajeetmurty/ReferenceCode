@@ -1,0 +1,22 @@
+
+________________________________________________________________
+
+eclipse color theme - http://eclipsecolorthemes.org/?view=plugin
+
+________________________________________________________________
+
+eclipse line formatting folding - Window/Preferences/Java/Code Style/Formatter
+
+________________________________________________________________
+
+eclipse fix socket exception with java 1.7 - 
+	Add following to eclipse.ini file under 'vmargs' section - 
+		-vmargs
+		-Djava.net.preferIPv4Stack=true
+		-Dosgi.requiredJavaVersion=1.5
+	To run jar with another Java version - 
+		PS C:\Users\amurty\Desktop\vamsi_oracle_plugin\plugin> & 'C:\Program Files (x86)\Java\jdk1.6.0_31\bin\java.exe' -jar dbcheck.jar
+
+________________________________________________________________
+
+________________________________________________________________
