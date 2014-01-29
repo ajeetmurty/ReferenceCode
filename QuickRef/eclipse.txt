@@ -9,10 +9,14 @@ eclipse line formatting folding - Window/Preferences/Java/Code Style/Formatter
 
 ________________________________________________________________
 
-initial commit to git repo - 
-	team >> share project >> git >> repository path
-	do not provide relative path.
+e-git - 
 
+	initial commit to git repo - 
+		team >> share project >> git >> repository path
+		do not provide relative path.
+
+	git url format - ssh://git@github.com/ajeetmurty/<repo name>.git
+	
 ________________________________________________________________
 
 eclipse fix socket exception with java 1.7 - 
