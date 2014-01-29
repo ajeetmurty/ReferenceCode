@@ -6,12 +6,12 @@ BoilerPlate and POC code.
 
 ## Projects
 
-0.  QuickRef:   commands for OS, MySQL, PhoneGap.
-1.  java:       DS, Threads, Algos, Games.
-2.  perl:       DS, scripts.
-3.  web:        HTML, CSS, JS, AJAX, JQuery. 
-4.  phonegap:   Template, DB, Sensors.
-5.  restful:    Restful Server and Client.
+0.  QuickRef:   Cmd Cheatsheet for Python, Perl, Hadoop, MySQL, PhoneGap, Maven.
+1.  java:       Cryption, DB, Math, Net, OS, D.Patterns, Regex.
+2.  perl:       Cryption, Net, OS, SMTP.
+3.  python:     DB, SMTP.
+4.  phonegap:   Template, DB.
+5.  mapreduce:  Template (Log Count).
 
 ## License
 
