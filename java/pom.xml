@@ -58,7 +58,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>ajeetmurty.reference.mapreduce.logcount.LogCount</mainClass>
+							<mainClass>ajeetmurty.reference.java.Template</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
