@@ -28,5 +28,5 @@ eclipse fix socket exception with java 1.7 -
 		PS C:\Users\amurty\Desktop\vamsi_oracle_plugin\plugin> & 'C:\Program Files (x86)\Java\jdk1.6.0_31\bin\java.exe' -jar dbcheck.jar
 
 ________________________________________________________________
-
 ________________________________________________________________
+
