@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
 
 public class FileParse {
 	private final Logger logp = LoggerFactory.getLogger(this.getClass().getName());
-	private final String inputLogFilePath = "src/main/resources/regex.log";
+	private final String inputLogFilePath = "input/regex.log";
 	private final String regex = "^(\\S+)\\s(.*)$";
 
 	public static void main(String[] args) {

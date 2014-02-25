@@ -13,7 +13,7 @@ import org.slf4j.LoggerFactory;
 public class CrlIO {
 	private final Logger logp = LoggerFactory.getLogger(this.getClass().getName());
 	// CRL file download: http://www.certificates-australia.com.au/general/cert_download.shtml
-	private final String inputCrlFilePath = "src/main/resources/VerizonAU_SecureNet-Limited-Root-CA.crl";
+	private final String inputCrlFilePath = "input/VerizonAU_SecureNet-Limited-Root-CA.crl";
 
 	public static void main(String[] args) {
 		new CrlIO();
