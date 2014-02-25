@@ -28,7 +28,7 @@ public class Mysql {
 
 	private void connectToDb() {
 		try {
-			logp.info(String.format("conn params: hostname|port|username|password : %1$s|%2$s|%3$s|%3$s", hostname, port, username, password));
+			logp.info(String.format("conn params: hostname|port|username|password : %1$s|%2$s|%3$s|%4$s", hostname, port, username, password));
 
 			MysqlDataSource dataSource = new MysqlDataSource();
 			dataSource.setServerName(hostname);
