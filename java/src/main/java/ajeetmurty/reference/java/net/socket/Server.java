@@ -42,6 +42,7 @@ public class Server {
 			looper = false;
 			dumpSocket(connectionSocket);
 			connectionSocket.close();
+			welcomeSocket.close();
 			logp.info("connection closed successfully!");
 		}
 	}
