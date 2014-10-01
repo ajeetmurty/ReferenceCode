@@ -1,0 +1,20 @@
+
+________________________________________________________________
+
+console/ssh for edison + mini-breakout - 
+
+	connect uart and usb to usb ports.
+	determine com (COMxx) port on which device is detected.
+	for putty - https://software.intel.com/en-us/html5/documentation/getting-started-with-intel-xdk-iot-edition
+		connection type - serial
+		serial line - COMxx
+		speed - 115200
+	for ssh - TBD
+		
+
+________________________________________________________________
+
+
+________________________________________________________________
+________________________________________________________________
+
