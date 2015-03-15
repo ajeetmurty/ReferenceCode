@@ -1,20 +1,83 @@
 
-________________________________________________________________
+________________________________________________________
 
-console/ssh for edison + mini-breakout - 
+connecting to edison on mini-breakout - 
 
-	connect uart and usb to usb ports.
-	determine com (COMxx) port on which device is detected.
-	for putty - https://software.intel.com/en-us/html5/documentation/getting-started-with-intel-xdk-iot-edition
-		connection type - serial
-		serial line - COMxx
-		speed - 115200
-	for ssh - TBD
-		
+	1. install edison drivers - Driver software - http://www.intel.com/support/edison/sb/CS-035180.htm
+	2. connect usb cables to both usb ports on right side. 
+		a. top port - terminal emulator (putty). 
+		b. bottom port - power 5 volts via usb. 
+	3. from 'device manager' determine which port maps to 'USB Serial Port'. Example - COM4. 
+	4. use putty to establish serial connection to COM port from step 3. hit enter twice to get command prompt. 
+		a. connection type - serial
+		b. speed - 115200
+		c. serial line - COM4
 
-________________________________________________________________
+________________________________________________________
+
+installing/configuring edison firmware - 
+
+	1. yocto - 
+		a. connect over serial. 
+		b. run at command prompt - configure_edison 
+
+	2. ubilinux - 
+		a. download and unzip ubilinux - http://www.emutexlabs.com/ubilinux
+		b. download unzip dfu utilities - http://dfu-util.sourceforge.net/releases/
+		c. copy 'dfu-util.exe' and 'libusb-1.0.dll' from 'dfu-util-0.8-binaries\win32-mingw32' to '\toFlash\'. 
+		d. disconnect edison from computer and connect during step 'e'. 
+		e. from command line cd to '\toFlash\' and run - .\flashall.bat
+			PS C:\toFlash> .\flashall.bat
+			Using U-boot target: edison-blankrndis
+			Now waiting for dfu device 8087:0a99
+			Please plug and reboot the board
+			Dfu device found
+			Flashing IFWI
+			Download        [=========================] 100%      4194304 bytes
+			Download done.
+			Download        [=========================] 100%      4194304 bytes
+			Download done.
+			Flashing U-Boot
+			Download        [=========================] 100%       245760 bytes
+			Download done.
+			Flashing U-Boot Environment
+			Download        [=========================] 100%        65536 bytes
+			Download done.
+			Flashing U-Boot Environment Backup
+			Download        [=========================] 100%        65536 bytes
+			Download done.
+			Rebooting to apply partiton changes
+			Dfu device found
+			Flashing boot partition (kernel)
+			Download        [=========================] 100%      5980160 bytes
+			Download done.
+			Flashing rootfs, (it can take up to 5 minutes... Please be patient)
+			Download        [=========================] 100%   1610612736 bytes
+			Download done.
+			Rebooting
+			U-boot & Kernel System Flash Success...
+			Your board needs to reboot to complete the flashing procedure, please do not unplug it for 2 minutes. 
+			PS C:\toFlash>
+		f. wait 5 mins and then use putty to establish serial connection. 
+		h. default ubilinux login - root/edison. 
+
+________________________________________________________
+
+references - 
+	edison product brief - http://download.intel.com/support/edison/sb/edison_pb_331179001.pdf
+	edison hardware guide - http://download.intel.com/support/edison/sb/edisonmodule_hg_331189002.pdf
+	edison mini breakout board getting started - https://www.youtube.com/watch?v=-JwOB6vvETw
+	edison getting started guide - https://learn.sparkfun.com/tutorials/edison-getting-started-guide
+	installing ubilinux on the edison - https://www.youtube.com/watch?v=BSnXjuttSgY
+	restoring drive on edison - https://www.youtube.com/watch?v=CGzgu-i6R_A
+
+edison parts & projects - 
+	https://www.sparkfun.com/categories/272
+	http://www.davidhunt.ie/first-intel-edison-project-dslr-camera-controller/
+
+________________________________________________________
+
+________________________________________________________
 
 
-________________________________________________________________
-________________________________________________________________
 
