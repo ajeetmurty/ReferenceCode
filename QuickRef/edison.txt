@@ -91,6 +91,17 @@ installing/configuring edison firmware -
 
 ________________________________________________________
 
+nodejs updates - 
+	sudo npm cache clean -f
+	sudo npm install -g n
+	sudo n stable
+
+running app - 
+	npm install --verbose
+	npm start
+
+________________________________________________________
+
 references - 
 	edison product brief - http://download.intel.com/support/edison/sb/edison_pb_331179001.pdf
 	edison hardware guide - http://download.intel.com/support/edison/sb/edisonmodule_hg_331189002.pdf
