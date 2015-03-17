@@ -100,6 +100,14 @@ running app -
 	npm install --verbose
 	npm start
 
+setting app to autostart - 
+	npm install pm2 --verbose
+	pm2 start/restart/delete/stop app.js
+	pm2 startup
+	pm2 list
+	pm2 show <app name>
+	pm2 monit
+
 ________________________________________________________
 
 references - 
