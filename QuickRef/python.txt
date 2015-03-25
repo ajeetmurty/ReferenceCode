@@ -6,6 +6,101 @@ installing pip (python package manager) in win64|py3.3.1 environment -
 		curl https://raw.github.com/pypa/pip/master/contrib/get-pip.py | python 
 	Add 'Scripts' dir to win path variable.
 
-installing new packages - 
-	pip install <module name>
+python setup - 
+
+	python 3.4.1 install - 
+		wget https://www.python.org/ftp/python/3.4.1/Python-3.4.1.tgz
+		tar -xvf Python-3.4.1.tgz
+		cd Python-3.4.1
+		./configure --prefix=/usr/local
+		make && make altinstall
+		/usr/local/bin/python3.4 -V
+			Python 3.4.1
+		/usr/local/bin/pip3.4 -V
+			pip 1.5.6 from /usr/local/lib/python3.4/site-packages (python 3.4)
+		/usr/local/bin/pip3.4 install -v virtualenv
+		/usr/local/bin/pip3.4 install -v requests
+
+	solaris setup - 
+	
+		install packages - 
+			/opt/csw/bin/pkgutil -y -i CSWbdb4 CSWcommon CSWlibnet CSWosslutils CSWsasl CSWsudo-common CSWsudoldap cswpki gcc4core gcc4g++ gmake libssl_dev openldap_client openldap_dev
+			/opt/csw/bin/pkgutil -y -i CSWgdb CSWgcc4core CSWgcc4g++ CSWgit CSWpython33 CSWpython33-dev CSWpy-pip
+		
+		install setuptools - 
+			wget https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py
+			cmd = ['wget', url, '--quiet', '--no-check-certificate', '--output-document', target]
+			/opt/csw/bin/python3 ez_setup.py
+			/opt/csw/bin/easy_install --version
+		
+		install pip - 
+			/opt/csw/bin/easy_install pip
+			/opt/csw/bin/pip3.3 -V
+			/opt/csw/bin/pip3.3 install -v virtualenv
+			/opt/csw/bin/pip3.3 install -v requests
+
+
+	old setup -
+	  
+		python 3.3.4 install - 
+			wget http://www.python.org/ftp/python/3.3.4/Python-3.3.4.tgz
+			tar -xvf Python-3.3.4.tgz
+			cd Python-3.3.4
+			./configure --prefix=/usr/local
+			make && make altinstall
+			/usr/local/bin/python3.3 -V
+				Python 3.3.4
+	 	
+		setuptools install - 
+		 	wget https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py
+		 	
+		 	edit ez_setup.py to remove ssl check - 
+		 		cmd = ['wget', url, '--quiet', '--output-document', target]
+		 			TO
+		 		cmd = ['wget', url, '--quiet', '--no-check-certificate', '--output-document', target]	
+		 	
+		 	/usr/local/bin/python3.3 /home/amurty/ez_setup.py
+		 	/usr/local/bin/easy_install-3.3 --version
+				setuptools 3.1
+				
+		pip install - 
+			/usr/local/bin/easy_install-3.3 pip
+		
+		set path - 
+			echo 'pathmunge /usr/local/bin' > /etc/profile.d/py.sh
+			chmod +x /etc/profile.d/py.sh
+	
+		logout off all SSH sessions, reconnect.
+	
+		check versions - 
+			python -V
+				Python 2.6.6
+			python3.4 -V
+				Python 3.3.4
+			pip3.4 -V
+				pip 1.5.4 from /usr/local/lib/python3.3/site-packages/pip-1.5.4-py3.3.egg (python 3.3)
+			easy_install-3.3 --version
+				setuptools 2.2
+	
+		install packages - 
+			pip3.3 install -v virtualenv
+			pip3.3 install -v requests
+
+
+python naming conventions - 
+	Info - http://www.python.org/dev/peps/pep-0008/
+	Packages - Python packages should also have short, all-lowercase names, although
+	Modules - Modules should have short, all-lowercase names
+	Classes - Use the CapWords convention
+	Functions - Should be lowercase, with words separated by underscores
+	Constants - all capital letters with underscores separating words
+	Global Variables - 
+		Modules that are designed for use via "from M import *" should use the
+		__all__ mechanism to prevent exporting globals, or use the older
+		convention of prefixing such globals with an underscore (which you might
+		want to do to indicate these globals are "module non-public").
+	Method Names and Instance Variables - lowercase with words separated by underscores
+	Function and method arguments - 
+		Always use 'self' for the first argument to instance methods.
+		Always use 'cls' for the first argument to class methods.
 
