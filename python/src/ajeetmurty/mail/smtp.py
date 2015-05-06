@@ -28,6 +28,7 @@ def print_sys_info():
 def do_smtp():
     logr.info('SMTP host|port|timeout|from|to : {0}|{1}|{2}|{3}|{4}.'.format(smtp_host_ip, smtp_host_port, smtp_host_timeout, smtp_from_address, smtp_to_addresses))
     message_raw = 'Test Email formulated at: {0}.'.format(datetime.datetime.now())
+    message_raw += '\nEmail Sent To - smtp server|port|timeout|from|to: {0}|{1}|{2}|{3}|{4}.'.format(smtp_host_ip, smtp_host_port, smtp_host_timeout, smtp_from_address, smtp_to_addresses)
     message_raw += '\nCheck Performed By - login|hostname|os|python : {0}|{1}|{2}|{3}.'.format(os.getlogin(), platform.node() , platform.system() + '-' + platform.release() , platform.python_version())
     message_formatted = MIMEText(message_raw)
     message_formatted['Subject'] = 'SMTP Test Script'
