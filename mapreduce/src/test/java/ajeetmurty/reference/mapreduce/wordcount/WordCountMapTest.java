@@ -1,7 +1,6 @@
 package ajeetmurty.reference.mapreduce.wordcount;
 
 import java.io.IOException;
-
 import junit.framework.TestCase;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.LongWritable;
