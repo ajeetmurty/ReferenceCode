@@ -16,6 +16,7 @@ hdfs dir operations -
 
 run mapreduce job - 
 	right click on eclipse mapreduce project and click run_as->maven_install
+	check manifest of generated jar for main class and java version. 
 	copy generated jar to vm - /media/sf_rdp/hadoop/mapreduce-0.0.1.jar
 	cd /media/sf_rdp/hadoop
 		delete output dir - 
