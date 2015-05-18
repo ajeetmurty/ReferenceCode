@@ -3,11 +3,12 @@
 
 	<groupId>ajeetmurty.reference</groupId>
 	<artifactId>mapreduce</artifactId>
-	<version>0.0.1</version>
+	<version>0.0.2</version>
 	<packaging>jar</packaging>
 
 	<name>mapreduce</name>
 	<url>http://maven.apache.org</url>
+	<description>mapreduce intro eclipse project. utilizes maven. runs on cloudera and aws-emr. </description>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -17,14 +18,22 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.11</version>
+			<version>4.12</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.hadoop</groupId>
-			<artifactId>hadoop-core</artifactId>
-			<version>1.2.0</version>
+			<artifactId>hadoop-client</artifactId>
+			<version>2.4.0</version>
+			<classifier>tests</classifier>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.mrunit</groupId>
+			<artifactId>mrunit</artifactId>
+			<version>1.0.0</version>
+			<classifier>hadoop2</classifier>
 		</dependency>
 	</dependencies>
+
 	<build>
 		<plugins>
 			<plugin>
@@ -33,7 +42,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>ajeetmurty.reference.mapreduce.logcount.LogCount</mainClass>
+							<mainClass>ajeetmurty.reference.mapreduce.wordcount.WordCount</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
@@ -45,8 +54,8 @@
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-compiler-plugin</artifactId>
 					<configuration>
-						<source>1.6</source>
-						<target>1.6</target>
+						<source>1.7</source>
+						<target>1.7</target>
 					</configuration>
 				</plugin>
 			</plugins>
