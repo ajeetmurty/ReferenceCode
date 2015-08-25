@@ -31,7 +31,7 @@ def do_parsing():
 
     if response:
         if(response.status_code == 200):
-            logr.info('response: ' + content.replace('\r\n', ''))
+            logr.info('response: ' + content.replace('\n', ''))
             soup = BeautifulSoup(content)
             output_dict = {}
             output_dict['url'] = google_url
