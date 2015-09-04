@@ -1,0 +1,2 @@
+generate traffic - 
+  while true; do(curl -k http://127.0.0.1/something &); sleep 1.0; done
