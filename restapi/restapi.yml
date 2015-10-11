@@ -1,0 +1,47 @@
+#sample json used by configuration class
+template: Hello, %s!
+defaultName: Stranger
+
+#server config and ports
+server:
+  applicationConnectors:
+    - type: http
+      port: 8800
+    - type: https
+      port: 8844
+      keyStorePath: example.keystore
+      keyStorePassword: example
+      validateCerts: false
+  adminConnectors:
+    - type: http
+      port: 8900
+    - type: https
+      port: 8944
+      keyStorePath: example.keystore
+      keyStorePassword: example
+      validateCerts: false
+
+logging:
+  # The default level of all loggers. Can be OFF, ERROR, WARN, INFO, DEBUG, TRACE, or ALL.
+  level: INFO
+  appenders:
+    #log to console
+    - type: console
+    #log to disk
+    - type: file
+      threshold: ALL
+      currentLogFilename: log/restapi.log
+      archivedLogFilenamePattern: log/restapi-%d.log.gz
+      archivedFileCount: 5
+      timeZone: UTC
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,12 @@
+
+_______________________________________________________________
+
+execute - 
+
+	in eclipse - run RestApiApplication as 'Java Application'
+	in os - run 'maven install' to build jar and then run 'java -jar resapi-x.x.x.jar server restapi.yml'
+
+_______________________________________________________________
+
+
+_______________________________________________________________
