@@ -36,8 +36,7 @@ def do_io():
         error = row[3]
         location = row[4]
         temp_output = [status, timestp, response, error, location]
-        
-        print("parsed -->"+str(temp_output))
+        print("parsed -->" + str(temp_output))
         csvwriter.writerow(temp_output)
     
     csvinput.close()
