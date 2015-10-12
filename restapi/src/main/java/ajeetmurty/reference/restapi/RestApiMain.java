@@ -9,16 +9,16 @@ import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 
-public class RestApiApplication extends Application<RestApiConfiguration> {
+public class RestApiMain extends Application<RestApiConfiguration> {
 	private final Logger logp = LoggerFactory.getLogger(this.getClass().getName());
 
 	public static void main(String[] args) throws Exception {
-		new RestApiApplication().run(args);
+		new RestApiMain().run(args);
 	}
 
 	@Override
 	public String getName() {
-		return "rest-api";
+		return "restapi";
 	}
 
 	@Override
