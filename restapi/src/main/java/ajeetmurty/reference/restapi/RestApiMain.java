@@ -28,7 +28,7 @@ public class RestApiMain extends Application<RestApiConfiguration> {
 
 	@Override
 	public void run(RestApiConfiguration configuration, Environment environment) {
-		final RestApiResource resource = new RestApiResource(configuration.getTemplate(), configuration.getDefaultName());
+		final RestApiResource resource = new RestApiResource(configuration.getTemplate(), configuration.getDefaultName(), configuration.getDefaultPhone());
 		final TemplateHealthCheck healthCheck = new TemplateHealthCheck(configuration.getTemplate());
 		environment.healthChecks().register("template", healthCheck);
 		environment.jersey().register(resource);

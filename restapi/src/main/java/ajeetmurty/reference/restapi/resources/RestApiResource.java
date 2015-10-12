@@ -18,20 +18,23 @@ import ajeetmurty.reference.restapi.core.Saying;
 public class RestApiResource {
 	private final String template;
 	private final String defaultName;
+	private final String defaultPhone;
 	private final AtomicLong counter;
 
-	public RestApiResource(String template, String defaultName) {
+	public RestApiResource(String template, String defaultName, String defaultPhone) {
 		this.template = template;
 		this.defaultName = defaultName;
+		this.defaultPhone = defaultPhone;
 		this.counter = new AtomicLong();
 	}
 
 	@GET
 	@Timed
-	public Saying sayHello(@Context HttpServletRequest httpRequest, @QueryParam("name") Optional<String> name) {
+	public Saying sayHello(@Context HttpServletRequest httpRequest, @QueryParam("name") Optional<String> name, @QueryParam("phone") Optional<String> phone) {
 		dumpHttpGetRequest(httpRequest);
-		final String value = String.format(template, name.or(defaultName));
-		return new Saying(counter.incrementAndGet(), value);
+		final String finalName = String.format(template, name.or(defaultName));
+		final String finalPhone = phone.or(defaultPhone);
+		return new Saying(counter.incrementAndGet(), finalName, finalPhone);
 	}
 
 	private void dumpHttpGetRequest(HttpServletRequest httpRequest) {
@@ -50,7 +53,7 @@ public class RestApiResource {
 				contentVals.append("|" + paramName + ":" + httpRequest.getParameter(paramName));
 			}
 
-			System.out.println("headers - " + headerVals.toString() + " || content - " + contentVals.toString());
+			System.out.println("HTTP GET REQ -- headers - " + headerVals.toString() + " || content - " + contentVals.toString());
 		} else {
 			System.out.println("null get request object received!");
 		}

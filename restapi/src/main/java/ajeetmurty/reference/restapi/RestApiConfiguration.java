@@ -11,6 +11,9 @@ public class RestApiConfiguration extends Configuration {
 	@NotEmpty
 	private String defaultName = "Stranger";
 
+	@NotEmpty
+	private String defaultPhone = "1-000-000-0000";
+
 	@JsonProperty
 	public String getTemplate() {
 		return template;
@@ -30,4 +33,15 @@ public class RestApiConfiguration extends Configuration {
 	public void setDefaultName(String name) {
 		this.defaultName = name;
 	}
+
+	@JsonProperty
+	public String getDefaultPhone() {
+		return defaultPhone;
+	}
+
+	@JsonProperty
+	public void setDefaultPhone(String phone) {
+		this.defaultPhone = phone;
+	}
+
 }
