@@ -1,12 +1,19 @@
 
 _______________________________________________________________
 
-execute - 
+build/run - 
 
 	in eclipse - run RestApiApplication as 'Java Application'
 	in os - run 'maven install' to build jar and then run 'java -jar resapi-x.x.x.jar server restapi.yml'
 
 _______________________________________________________________
 
+urls - 
+	
+	status - https://localhost:8944/healthcheck
+	api - https://localhost:8844/rest-api
+	api with params - https://localhost:8844/rest-api?name=admin
+
+_______________________________________________________________
 
 _______________________________________________________________
