@@ -1,10 +1,13 @@
 package ajeetmurty.reference.restapi.resources;
 
+import java.util.Enumeration;
 import java.util.concurrent.atomic.AtomicLong;
+import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import com.codahale.metrics.annotation.Timed;
 import com.google.common.base.Optional;
@@ -25,8 +28,31 @@ public class RestApiResource {
 
 	@GET
 	@Timed
-	public Saying sayHello(@QueryParam("name") Optional<String> name) {
+	public Saying sayHello(@Context HttpServletRequest httpRequest, @QueryParam("name") Optional<String> name) {
+		dumpHttpGetRequest(httpRequest);
 		final String value = String.format(template, name.or(defaultName));
 		return new Saying(counter.incrementAndGet(), value);
+	}
+
+	private void dumpHttpGetRequest(HttpServletRequest httpRequest) {
+		if (httpRequest != null) {
+			StringBuilder headerVals = new StringBuilder();
+			StringBuilder contentVals = new StringBuilder();
+
+			Enumeration<String> headerNames = httpRequest.getHeaderNames();
+			while (headerNames.hasMoreElements()) {
+				headerVals.append("|" + httpRequest.getHeader((String) headerNames.nextElement()));
+			}
+
+			Enumeration<String> params = httpRequest.getParameterNames();
+			while (params.hasMoreElements()) {
+				String paramName = (String) params.nextElement();
+				contentVals.append("|" + paramName + ":" + httpRequest.getParameter(paramName));
+			}
+
+			System.out.println("headers - " + headerVals.toString() + " || content - " + contentVals.toString());
+		} else {
+			System.out.println("null get request object received!");
+		}
 	}
 }
