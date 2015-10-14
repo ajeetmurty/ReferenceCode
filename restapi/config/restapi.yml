@@ -1,6 +1,6 @@
 #sample json used by configuration class
-template: Hello, %s!
-defaultName: Stranger
+template: "%s"
+defaultName: unknown
 
 #server config and ports
 server:
@@ -9,7 +9,7 @@ server:
       port: 8800
     - type: https
       port: 8844
-      keyStorePath: example.keystore
+      keyStorePath: keystore/example.keystore
       keyStorePassword: example
       validateCerts: false
   adminConnectors:
@@ -21,6 +21,7 @@ server:
       keyStorePassword: example
       validateCerts: false
 
+#logging
 logging:
   # The default level of all loggers. Can be OFF, ERROR, WARN, INFO, DEBUG, TRACE, or ALL.
   level: INFO
@@ -34,13 +35,6 @@ logging:
       archivedLogFilenamePattern: log/restapi-%d.log.gz
       archivedFileCount: 5
       timeZone: UTC
-
-
-
-
-
-
-
 
 
 
