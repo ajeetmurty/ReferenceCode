@@ -1,0 +1,9 @@
+[connection_params]
+uri: mongodb://{0}:{1}@{2}:{3}/{4}
+host: localhost.sample.net
+port: 111111
+token01: testusr
+token02: testpd
+database: testmdb
+collection: testmcoll
+
