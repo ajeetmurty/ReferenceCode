@@ -12,7 +12,9 @@ urls -
 	
 	status - https://localhost:8944/healthcheck
 	api - https://localhost:8844/rest-api
-	api with params - https://localhost:8844/rest-api?name=admin
+	api with params - 
+		https://localhost:8844/rest-api?name=admin
+		https://localhost:8844/rest-api?firstname=admin&phone=100-00-9043&lastname=adlast
 
 _______________________________________________________________
 
