@@ -9,7 +9,7 @@ public class RestApiConfiguration extends Configuration {
 	private String template;
 
 	@NotEmpty
-	private String defaultName = "Stranger";
+	private String defaultName;
 
 	@NotEmpty
 	private String defaultPhone = "1-000-000-0000";

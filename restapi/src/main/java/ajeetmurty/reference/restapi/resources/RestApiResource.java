@@ -11,7 +11,8 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import com.codahale.metrics.annotation.Timed;
 import com.google.common.base.Optional;
-import ajeetmurty.reference.restapi.core.Saying;
+
+import ajeetmurty.reference.restapi.core.Person;
 
 @Path("/rest-api")
 @Produces(MediaType.APPLICATION_JSON)
@@ -30,11 +31,12 @@ public class RestApiResource {
 
 	@GET
 	@Timed
-	public Saying sayHello(@Context HttpServletRequest httpRequest, @QueryParam("name") Optional<String> name, @QueryParam("phone") Optional<String> phone) {
+	public Person sayHello(@Context HttpServletRequest httpRequest, @QueryParam("firstname") Optional<String> firstName, @QueryParam("lastname") Optional<String> lastName, @QueryParam("phone") Optional<String> phone) {
 		dumpHttpGetRequest(httpRequest);
-		final String finalName = String.format(template, name.or(defaultName));
+		final String finalFirstName = String.format(template, firstName.or(defaultName));
+		final String finalLastName = String.format(template, lastName.or(defaultName));
 		final String finalPhone = phone.or(defaultPhone);
-		return new Saying(counter.incrementAndGet(), finalName, finalPhone);
+		return new Person(counter.incrementAndGet(), finalFirstName, finalLastName, finalPhone);
 	}
 
 	private void dumpHttpGetRequest(HttpServletRequest httpRequest) {
