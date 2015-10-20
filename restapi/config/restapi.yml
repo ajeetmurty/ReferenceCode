@@ -2,6 +2,11 @@
 template: "%s"
 defaultName: unknown
 
+#database
+mongodbhost: localhost
+mongodbport: 27017
+mongodbdb: mydb
+
 #server config and ports
 server:
   applicationConnectors:
@@ -17,7 +22,7 @@ server:
       port: 8900
     - type: https
       port: 8944
-      keyStorePath: example.keystore
+      keyStorePath: keystore/example.keystore
       keyStorePassword: example
       validateCerts: false
 

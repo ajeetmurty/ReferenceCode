@@ -14,7 +14,7 @@ import com.google.common.base.Optional;
 
 import ajeetmurty.reference.restapi.core.Person;
 
-@Path("/rest-api")
+@Path("/rest-api/createperson")
 @Produces(MediaType.APPLICATION_JSON)
 public class RestApiResource {
 	private final String template;
