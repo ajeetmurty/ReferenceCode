@@ -21,7 +21,7 @@
               <transformers>
                 <transformer />
                 <transformer>
-                  <mainClass>ajeetmurty.reference.restapi.RestApiApplication</mainClass>
+                  <mainClass>ajeetmurty.reference.restapi.RestApiMain</mainClass>
                 </transformer>
               </transformers>
             </configuration>
