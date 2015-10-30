@@ -1,0 +1,8 @@
+
+to add file to maven local repo - 
+  download jar
+  mvn install:install-file -Dfile=C:\Users\amurty\Desktop\ojdbc7.jar -DgroupId=com.oracle -DartifactId=ojdbc7 -Dversion=12.1.0.2 -Dpackaging=jar -DgeneratePom=true
+
+default archetype for java - 
+  org.apache.maven.archtypes  - maven-archetype-quickstart
+
