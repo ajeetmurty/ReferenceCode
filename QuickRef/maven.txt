@@ -1,7 +1,13 @@
+install maven - 
+  download and unzip maven from - https://maven.apache.org/download.cgi
+  edit path variable to include M2_HOME, MAVEN_HOME, MAVEN_BIN
+  edit config file to point to local repo dir - /apache-maven-x.x.x/conf/settings.xml
+    <localRepository>/path/to/local/repo</localRepository>
 
 to add file to maven local repo - 
   download jar
-  mvn install:install-file -Dfile=C:\Users\amurty\Desktop\ojdbc7.jar -DgroupId=com.oracle -DartifactId=ojdbc7 -Dversion=12.1.0.2 -Dpackaging=jar -DgeneratePom=true
+  mvn install:install-file -Dfile=C:\ojdbc7.jar -DgroupId=com.oracle -DartifactId=ojdbc7 -Dversion=12.1.0.2 -Dpackaging=jar -DgeneratePom=true
+  add jar groupid, artifactid and version manually to eclipse-maven-pom-dependency config
 
 default archetype for java - 
   org.apache.maven.archtypes  - maven-archetype-quickstart
