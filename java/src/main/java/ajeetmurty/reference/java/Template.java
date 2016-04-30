@@ -13,6 +13,7 @@ public class Template {
 
 	public Template() {
 		doSomething();
+		//testing something
 	}
 
 	private void doSomething() {
