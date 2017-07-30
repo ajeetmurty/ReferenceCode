@@ -1,6 +1,10 @@
 
 _______________________________________________________________
 
+description - java restful ws using dropwizard
+
+_______________________________________________________________
+
 build/run - 
 
 	in eclipse - run RestApiMain as 'Java Application'
