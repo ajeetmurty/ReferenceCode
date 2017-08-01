@@ -1,0 +1,49 @@
+
+// start
+
+// shadown plugin bs
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.github.jengelman.gradle.plugins:shadow:2.0.1'
+    }
+}
+
+// plugins
+plugins {
+  id 'com.github.johnrengelman.shadow' version '2.0.1'
+  id 'java'
+  id 'eclipse'
+  id 'application'
+}
+
+// app info
+mainClassName = "ajeetmurty.reference.java.Template"
+version = 1.0
+
+// dependency source
+repositories {
+    jcenter()
+}
+
+// dependency management
+dependencies {
+    compile group: 'junit', name: 'junit', version: '4.12'
+    compile group: 'com.google.guava', name: 'guava', version: '22.0'
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
+    compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
+}
+
+// jar build - output in build dir
+shadowJar {
+   baseName = 'java-gradle-template'
+   manifest {
+		attributes(
+			'Main-Class': mainClassName
+   		)
+   	}
+}
+
+// end
